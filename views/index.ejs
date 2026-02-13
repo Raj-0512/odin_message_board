@@ -1,24 +1,27 @@
-
 <!doctype html>
 <html lang="en">
 <link rel="stylesheet" href="/styles.css">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Message</title>
 </head>
 <body>
-<ul>
-    <% messages.forEach((mes) => { %>
-       <li>Name: <%= mes.user%> </li>
-       <li>Message: <%=mes.text%></li>
-        <li>Date: <%=mes.added%></li>
-    <% }); %>
 
- %>
-</ul>
+<div class="messages-wrapper">
+    <% messages.forEach((mes , i) => { %>
+        <div class="message-card">
+            <div><strong>Name:</strong> <%= mes.user %></div>
+            <div><strong>Message:</strong> <%= mes.text %></div>
+            <div><strong>Date:</strong> <%= mes.added %></div>
+            <a class="open-btn" href="/message/<%=i%>">Open</a>
+        </div>
+    <% }) %>
+</div>
+
+<div id="add_message">
+    <a href="/new" style="text-decoration:none;color:white;">Add message</a>
+</div>
+
 </body>
 </html>
